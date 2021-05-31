@@ -70,6 +70,10 @@ def get_token():
       acrescentaCaracter()
       kind = '}'
       value = token_atual
+  elif proximoCaracter == '=':
+      acrescentaCaracter()
+      kind = 'ASSIGN'
+      value = token_atual
   elif proximoCaracter == '$':
     kind = 'EOF'
     value = token_atual
@@ -85,7 +89,20 @@ def get_token():
       value = token_atual  
     else:
       kind = 'ID'
-      value = token_atual  
+      value = token_atual
+  elif proximoCaracter.isdigit() :
+    acrescentaCaracter()
+    pegaCaracter()
+    while proximoCaracter.isdigit() :
+      acrescentaCaracter()
+      pegaCaracter()
+    pos = pos - 1
+    if token_atual in keywords:
+      kind = token_atual
+      value = token_atual
+    else:
+      kind = 'INT'
+      value = token_atual
   elif proximoCaracter == ':':
       acrescentaCaracter()
       pegaCaracter()                

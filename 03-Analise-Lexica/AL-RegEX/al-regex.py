@@ -5,7 +5,7 @@ import re
 Token = NamedTuple('Token', [('type', str), ('value', str), ('line', int), ('column', int)])
 
 def tokenize(code):
-    keywords = {'main', 'int', 'for', 'if', 'return', 'else', 'else if'}
+    keywords = {'for', 'if', 'return', 'else', 'else if'}
     
     token_specification = [
         ('NUMBER',   r'\d+(\.\d*)?'),   # Integer or decimal number
