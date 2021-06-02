@@ -14,24 +14,29 @@ initial = 0
 edges = {}
 
 edges[(0,'+')] = 1
-
 edges[(0,'-')] = 1
-
-edges[(0,'')] = 1
+edges[(0,'.')] = 2
 
 digits = '0123456789'
 for d in digits:
-    edges[(1, d)] = 2
+    edges[(0,d)] = 3
+for d in digits:
+    edges[(3,d)] = 3
 
 for d in digits:
-    edges[(1, d)] = 1
-
-edges[(1,'.')] = 2
+    edges[(2,d)] = 4
 
 for d in digits:
-    edges[(2, d)] = 2
+    edges[(1,d)] = 3
 
-accepting = [2]
+edges[(3,'.')] = 4
+
+for d in digits:
+    edges[(4,d)] = 4
+
+
+
+accepting = [4]
 
 string = input()
 print( dfa(string, initial, edges, accepting) )
