@@ -94,7 +94,7 @@ tree2 = [ "E",
             ["E", ["T", ["F", "a"] ] ], 
             "+",
             ["T",
-                ["F", "a"],
+                ["T", ["F", "a"]],
                 "*",
                 ["F", "a"],
             ]
@@ -105,16 +105,15 @@ print (parser_tree(grammar2,tree2, "a+a*a"))
 
 # Construa a árvore sintática da a+a
 
-tree3 = ["E", 
-            ["E", ["T", ["F", "a"] ] ], 
-            "+",
-            ["T",
-                ["F", "a"],
-                "*",
-                ["F", "a"], 
-            ],
-            "+",
-            ["T", ["F", "a"]]
-        ]  
+tree3 = ['E', 
+            ['E', ['E', ['T', ['F', 'a']]], 
+            '+', 
+            ['T', 
+                ['T', ['F', 'a']], 
+                '*', 
+                ['F', 'a']]
+            ], 
+            '+', 
+            ['T', ['F', 'a']]]
 
 print (parser_tree(grammar2,tree3, "a+a*a+a"))
