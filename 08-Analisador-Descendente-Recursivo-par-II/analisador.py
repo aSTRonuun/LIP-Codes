@@ -17,6 +17,10 @@ def E_():
         proxCaractere = s[pos]
         T()
         E_()
+    elif proxCaractere == ')':
+        pos = pos + 1
+        proxCaractere = s[pos]
+        print("E' -> ''") 
     elif proxCaractere not in ['$', ')']:
         error = True
         print("erro sintatico")
@@ -70,10 +74,6 @@ def F():
         pos = pos + 1
         proxCaractere = s[pos]
         E()
-    elif proxCaractere == '(':
-        print("F -> (E)")
-        pos = pos + 1
-        proxCaractere = s[pos]
     else:
         error = True
         print("erro sintatico")
